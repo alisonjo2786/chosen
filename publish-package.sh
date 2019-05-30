@@ -10,7 +10,8 @@ if [ $CURRENT_BRANCH != 'master' ] ; then
 fi
 
 CHOSEN_VERSION=`git tag --sort=v:refname | tail -1`
-GITHUB_URL=https://pfiller:${GH_TOKEN}@github.com/harvesthq/chosen-package.git
+GITHUB_URL=git@github.com:alisonjo2786/chosen-package.git
+#GITHUB_URL=https://pfiller:${GH_TOKEN}@github.com/harvesthq/chosen-package.git
 
 git clone $GITHUB_URL
 rm -rf chosen-package/*
@@ -18,8 +19,8 @@ cp README.md public/*.json public/*.png public/*.js public/*.css public/LICENSE*
 cp package-travis.yml chosen-package/.travis.yml
 cd chosen-package
 
-git config user.email "chosen@getharvest.com"
-git config user.name "chosen-package"
+git config user.email "alisonjo2786@gmail.com"
+git config user.name "alison-chosen-package"
 
 LATEST_VERSION=`git tag --sort=v:refname | tail -1`
 
@@ -38,4 +39,4 @@ fi
 git push origin master
 git push origin --tags
 
-echo "Chosen built and pushed to harvesthq/chosen-package"
+echo "Chosen built and pushed to alisonjo2786/chosen-package"
